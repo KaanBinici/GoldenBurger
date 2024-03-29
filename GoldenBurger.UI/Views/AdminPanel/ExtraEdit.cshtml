@@ -1,0 +1,62 @@
+﻿@model GoldenBurger.DATA.Concrete.Extra
+
+@{
+    ViewData["Title"] = "ExtraEdit";
+    Layout = "~/Views/Shared/_AdminPanelLayout.cshtml";
+}
+
+<main class="main-content position-relative border-radius-lg ">
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header pb-0">
+                        <h6>Tatlı ve Sos</h6>
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <form id="extraForm" action="@Url.Action("ExtraEdit", "AdminPanel")" method="post" enctype="multipart/form-data">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                                <div class="col-md-6 mx-auto">
+                                    <div class="form-group">
+                                        <label asp-for="Name" class="control-label">İsmi</label>
+                                        <input asp-for="Name" class="form-control" />
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Price" class="control-label">Fiyatı</label>
+                                        <input asp-for="Price" class="form-control" />
+                                        <span asp-validation-for="Price" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label asp-for="Visible" class="control-label">Görünür</label>
+                                        <select asp-for="Visible" class="form-control">
+                                            <option value="true">True</option>
+                                            <option value="false">False</option>
+                                        </select>
+                                        <span asp-validation-for="Visible" class="text-danger"></span>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label asp-for="PhotoPath" class="control-label">Fotoğraf Seç</label>
+                                        <input type="file" id="file" name="file" accept="image/*" class="form-control" />
+                                        <span asp-validation-for="PhotoPath" class="text-danger"></span>
+
+                                        <img id="imgPreview" src="#" alt="" style="display:none; max-width: 100%; height: auto; margin-top: 10px;" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button type="submit" id="saveButton" class="btn btn-primary">Kaydet</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

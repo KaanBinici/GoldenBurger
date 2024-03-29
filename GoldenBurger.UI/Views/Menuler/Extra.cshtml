@@ -1,0 +1,77 @@
+﻿
+@model List<Extra>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_BurgerLayout.cshtml";
+}
+<link rel="stylesheet" href="~/css/BasketAddButton.css">
+<!-- ======= Menu Section ======= -->
+<section style="padding-top: 100px;" id="menu" class="menu">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Our Menu</h2>
+            <p>Check Our <span>Yummy Menu</span></p>
+        </div>
+
+
+
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+
+            <div class="tab-pane fade active show" id="menu-starters">
+
+                <div class="tab-header text-center">
+                    <p>Burger</p>
+                    <h3>Golden Menüler</h3>
+                </div>
+
+                <div class="row gy-5">
+                    @foreach (var menu in Model)
+                    {
+                        <div class="col-lg-4 menu-item" id="boyut">
+                            <a class="glightbox"><img src="~/@menu.PhotoPath" class="menu-img img-fluid" class="menu-img img-fluid" alt="@menu.Name"></a>
+                            <h4>@menu.Name</h4>
+                            <p class="ingredients">
+
+                            </p>
+                            <p class="price">
+                                ₺@menu.Price
+                            </p>
+                            <button class="button" onclick="addBasket(@menu.ID)">
+                                <span>Sepete Ekle</span>
+                            </button>
+
+
+                        </div>
+
+                        <!-- Menu Item -->
+                    }
+                </div>
+            </div><!-- End Starter Menu Content -->
+
+
+
+
+        </div>
+
+    </div>
+    <script>
+        // Ürünün üzerine tıklandığında çalışacak JavaScript fonksiyonu
+        function addBasket(MenuId) {
+            // AJAX isteği oluşturma
+            $.ajax({
+                type: "POST",
+                url: "/Menuler/SepeteExtraEkle",
+                data: { productId: MenuId },
+                success: function (result) {
+
+                    console.log("Ürün sepete eklendi.");
+
+                },
+                error: function (xhr, status, error) {
+                    console.error("Ürün sepete eklenirken bir hata oluştu: " + error);
+                }
+            });
+        }
+    </script>
+</section><!-- End Menu Section -->

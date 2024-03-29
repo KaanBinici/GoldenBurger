@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Verification";
+    Layout = "~/Views/Shared/_BurgerLayout.cshtml";
+}
+<link rel="stylesheet" href="~/css/Verification.css">
+
+<div class="container" style="padding-top: 200px; padding-bottom: 200px;">
+    <div class="row justify-content-center">
+        <div class="col-lg-4">
+            <div class="form-container">
+                <form class="form" method="post" asp-action="Verification" asp-controller="Create">
+                    <span class="close">X</span>
+
+                    <div class="info">
+                        <span class="title">Two-Factor Verification</span>
+                        <p class="description">Enter the two-factor authentication code provided by the authenticator app </p>
+                    </div>
+                    <div class="input-fields">
+                        <input placeholder="" type="tel" maxlength="1" name="sayi1">
+                        <input placeholder="" type="tel" maxlength="1" name="sayi2">
+                        <input placeholder="" type="tel" maxlength="1" name="sayi3">
+                        <input placeholder="" type="tel" maxlength="1" name="sayi4">
+                        <input placeholder="" type="tel" maxlength="1" name="sayi5">
+                        <input placeholder="" type="tel" maxlength="1" name="sayi6">
+                    </div>
+
+                    <div class="action-btns">
+                        <button type="submit" class="verify">Verify</button>
+                        <a class="clear" href="#">Clear</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

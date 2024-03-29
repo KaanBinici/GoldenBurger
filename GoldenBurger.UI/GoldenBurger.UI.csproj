@@ -1,0 +1,158 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GoldenBurger.SERVICE\GoldenBurger.SERVICE.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\adminTemp\.DS_Store" />
+    <None Include="wwwroot\adminTemp\.github\workflows\main.yml" />
+    <None Include="wwwroot\GoldenTemp\assets\css\main.css" />
+    <None Include="wwwroot\GoldenTemp\assets\img\about-2.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\about.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\apple-touch-icon.png" />
+    <None Include="wwwroot\GoldenTemp\assets\img\chefs\chefs-1.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\chefs\chefs-2.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\chefs\chefs-3.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\events-1.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\events-2.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\events-3.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\favicon.png" />
+    <None Include="wwwroot\GoldenTemp\assets\img\gallery\gallery-1.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\gallery\gallery-2.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\gallery\gallery-3.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\gallery\gallery-4.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\gallery\gallery-5.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\gallery\gallery-6.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\gallery\gallery-7.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\gallery\gallery-8.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\hero-img.png" />
+    <None Include="wwwroot\GoldenTemp\assets\img\menu\menu-item-1.png" />
+    <None Include="wwwroot\GoldenTemp\assets\img\menu\menu-item-2.png" />
+    <None Include="wwwroot\GoldenTemp\assets\img\menu\menu-item-3.png" />
+    <None Include="wwwroot\GoldenTemp\assets\img\menu\menu-item-4.png" />
+    <None Include="wwwroot\GoldenTemp\assets\img\menu\menu-item-5.png" />
+    <None Include="wwwroot\GoldenTemp\assets\img\menu\menu-item-6.png" />
+    <None Include="wwwroot\GoldenTemp\assets\img\reservation.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\stats-bg.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\team-shape.svg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\testimonials\testimonials-1.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\testimonials\testimonials-2.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\testimonials\testimonials-3.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\img\testimonials\testimonials-4.jpg" />
+    <None Include="wwwroot\GoldenTemp\assets\js\main.js" />
+    <None Include="wwwroot\GoldenTemp\assets\scss\Readme.txt" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\aos\aos.cjs.js" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\aos\aos.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\aos\aos.esm.js" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\aos\aos.js" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\aos\aos.js.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap-icons\bootstrap-icons.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap-icons\bootstrap-icons.min.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap-icons\bootstrap-icons.scss" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap-icons\fonts\bootstrap-icons.woff" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap-icons\fonts\bootstrap-icons.woff2" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-grid.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-grid.rtl.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-grid.rtl.css.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-grid.rtl.min.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-grid.rtl.min.css.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.css.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.min.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-reboot.rtl.min.css.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-utilities.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-utilities.css.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-utilities.min.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-utilities.min.css.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.css.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.min.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap-utilities.rtl.min.css.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap.css.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap.min.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap.rtl.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap.rtl.css.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap.rtl.min.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\css\bootstrap.rtl.min.css.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\js\bootstrap.esm.js" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\js\bootstrap.esm.js.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\js\bootstrap.esm.min.js" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\js\bootstrap.esm.min.js.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\js\bootstrap.js" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\js\bootstrap.js.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\glightbox\css\glightbox.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\glightbox\css\glightbox.min.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\glightbox\css\plyr.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\glightbox\css\plyr.min.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\glightbox\js\glightbox.js" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\glightbox\js\glightbox.min.js" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\php-email-form\validate.js" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\purecounter\purecounter_vanilla.js" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\purecounter\purecounter_vanilla.js.map" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\swiper\swiper-bundle.min.css" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\swiper\swiper-bundle.min.js" />
+    <None Include="wwwroot\GoldenTemp\assets\vendor\swiper\swiper-bundle.min.js.map" />
+    <None Include="wwwroot\GoldenTemp\forms\book-a-table.php" />
+    <None Include="wwwroot\GoldenTemp\forms\contact.php" />
+    <None Include="wwwroot\GoldenTemp\forms\Readme.txt" />
+    <None Include="wwwroot\GoldenTemp\index.html" />
+    <None Include="wwwroot\GoldenTemp\sample-inner-page.html" />
+    <None Include="wwwroot\MenusPictures\big-king-jr-menu.png" />
+    <None Include="wwwroot\MenusPictures\bk-steakhouse-burger-menu.png" />
+    <None Include="wwwroot\MenusPictures\cheeseburger-menu.png" />
+    <None Include="wwwroot\MenusPictures\double-big-king-menu.png" />
+    <None Include="wwwroot\MenusPictures\double-cheeseburger-menu.png" />
+    <None Include="wwwroot\MenusPictures\double-king-chicken-menu.png" />
+    <None Include="wwwroot\MenusPictures\double-kofteburger-menu.png" />
+    <None Include="wwwroot\MenusPictures\double-whopper-jr-menu.png" />
+    <None Include="wwwroot\MenusPictures\double-whopper-menu.png" />
+    <None Include="wwwroot\MenusPictures\etli-barbeku-deluxe-burger-menu.png" />
+    <None Include="wwwroot\MenusPictures\king-beef-burger-menu.png" />
+    <None Include="wwwroot\MenusPictures\king-chicken-menu.png" />
+    <None Include="wwwroot\MenusPictures\kofteburger-menu.png" />
+    <None Include="wwwroot\MenusPictures\mega-double-cheeseburger-menu.png" />
+    <None Include="wwwroot\MenusPictures\plant-based-whopper-menu.png" />
+    <None Include="wwwroot\MenusPictures\rodeo-whopper-menu.png" />
+    <None Include="wwwroot\MenusPictures\tavuklu-barbeku-brioche-menu.png" />
+    <None Include="wwwroot\MenusPictures\texas-smokehouse-burger-menu.png" />
+    <None Include="wwwroot\MenusPictures\triple-whopper-menu.png" />
+    <None Include="wwwroot\MenusPictures\truflu-king-beef-burger-menu.png" />
+    <None Include="wwwroot\MenusPictures\whopper-jr-menu.png" />
+    <None Include="wwwroot\MenusPictures\whopper-menu.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\adminPanel\" />
+  </ItemGroup>
+
+</Project>

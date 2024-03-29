@@ -1,0 +1,266 @@
+﻿@model AllVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_BurgerLayout.cshtml";
+    int cbcounter = 1;
+
+}
+
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/css/Basket.css">
+    <link rel="stylesheet" href="~/css/Checkbox.css">
+    <link rel="stylesheet" href="~/css/RadioButton.css">
+    <script src="~/js/Basket.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Basket</title>
+</head>
+<body>
+    <main style="padding-top: 100px;padding-bottom: 150px;">
+        <div class="basket">
+            <div class="basket-labels">
+                <ul>
+                    <li class="item item-heading">Item</li>
+                    <li class="price">Price</li>
+                    <li class="quantity">Quantity</li>
+                    <li class="subtotal">Subtotal</li>
+                </ul>
+            </div>
+            @foreach (var food in Model.GetAllItemsExceptIngredients())
+            {
+                <div class="basket-product">
+                    <div class="item">
+                        <div class="product-image">
+                            <img src="~/@food.PhotoPath" alt="@food.Name" class="product-frame">
+                        </div>
+                        <div class="product-details">
+                            <h1><strong><span class="item-quantity">1</span> x @food.Name </strong> </h1>
+                            @if (food is Burger || food is Menu)
+                            {
+                                @foreach (var item in Model.Ingredients)
+                                {   // data-ingredient-id=" @item.ID" data-ingredient-name="@item.Name"
+                                    <div class="checkbox-wrapper">
+                                        <input type="checkbox" class="check" id="@($"check{food.ID}{item.ID}{cbcounter}")" data-ingredient-id=" @item.ID" data-ingredient-name="@item.Name" data-counter-id="@cbcounter">
+                                        <label for="@($"check{food.ID}{item.ID}{cbcounter}")" class="label">
+                                            <svg width="22" height="22" viewBox="0 0 95 95">
+                                                <rect x="30" y="20" width="50" height="50" stroke="black" fill="none"></rect>
+                                                <g transform="translate(0,-952.36222)">
+                                                    <path d="m 56,963 c -102,122 6,9 7,9 17,-5 -66,69 -38,52 122,-77 -7,14 18,4 29,-11 45,-43 23,-4" stroke="black" stroke-width="3" fill="none" class="path1"></path>
+                                                </g>
+                                            </svg>
+                                            <span>@item.Name @item.Price</span>
+                                        </label>
+                                    </div>
+                                }
+                            }
+                            @if (food is Burger || food is Menu || food is Drink || food is Chips)
+                            {
+
+                                <div class="radio-buttons-container">
+                                    <div class="radio-button">
+                                        <input name="@($"radio-group-menu{cbcounter}")" id="@($"radio1-{cbcounter}")" class="radio-button__input" type="radio" checked data-value="1" data-counter-id="@cbcounter">
+                                        <label for="@($"radio1-{cbcounter}")" class="radio-button__label">
+                                            <span class="radio-button__custom"></span>
+                                            Small
+                                        </label>
+                                    </div>
+                                    <div class="radio-button">
+                                        <input name="@($"radio-group-menu{cbcounter}")" id="@($"radio2-{cbcounter}")" class="radio-button__input" type="radio" data-value="1.15" data-counter-id="@cbcounter">
+                                        <label for="@($"radio2-{cbcounter}")" class="radio-button__label">
+                                            <span class="radio-button__custom"></span>
+                                            Medium
+                                        </label>
+                                    </div>
+                                    <div class="radio-button">
+                                        <input name="@($"radio-group-menu{cbcounter}")" id="@($"radio3-{cbcounter}")" class="radio-button__input" type="radio" data-value="1.20" data-counter-id="@cbcounter">
+                                        <label for="@($"radio3-{cbcounter}")" class="radio-button__label">
+                                            <span class="radio-button__custom"></span>
+                                            Large
+                                        </label>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                    <div id="@($"foodPrice{cbcounter}")" class="price">@food.Price</div>
+                    <div class="quantity">
+                        <input id="@($"quantity{cbcounter}")" type="number" value="1" min="1" class="quantity-field" data-counter-id="@cbcounter">
+                    </div>
+                    <div id="@($"jsonPrice{cbcounter}")" class="subtotal">@food.Price</div>
+                    <div class="remove">
+                        <form asp-action="Remove" asp-controller="Basket" method="post">
+                            <input type="hidden" name="foodId" value="@food.ID" />
+                            <input type="hidden" name="foodType" value="@food.GetType().Name" /> 
+                            <button type="submit">Remove</button>
+                        </form>
+                    </div>
+                </div>
+                cbcounter = cbcounter + 1;
+            }
+        </div>
+        <aside>
+            <div class="summary">
+                <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
+
+                <div class="summary-total">
+                    <div class="total-title">Total</div>
+                    <div class="total-value final-value" id="basket-total"></div>
+                    @*        @Model.getAllItemsTotalPrice() *@
+                </div>
+                <input type="hidden" id="total-price-input" name="totalPrice" value="" />
+                <form id="checkout-form" asp-action="Checkout" asp-controller="Basket" method="post">
+                    <button id="checkout-button" type="button" class="checkout-cta" >Go to Secure Checkout</button>
+                </form>
+
+            </div>
+        </aside>
+    </main>
+    <script>
+        $(document).ready(function () {
+            updateBasketTotal();
+            var priceDictionary = {};
+            var cbcounter2 = 1; 
+
+
+            $('[id^="foodPrice"]').each(function () {
+                var foodPriceID = $(this).attr('id');
+                priceDictionary[cbcounter2] = parseInt($(`#${foodPriceID}`).text());
+                cbcounter2++;
+            });
+
+            $('.radio-button__input').change(function () {
+                if ($(this).is(':checked')) {
+                    var cbcounter = $(this).data('counter-id');
+
+                    var quantityID = `quantity${cbcounter}`;
+                    var quantityElement = $(`#${quantityID}`);
+                    var quantityElementValue = parseFloat(quantityElement.val());
+
+                    var foodPriceID = `foodPrice${cbcounter}`;
+                    var foodPriceElement = $(`#${foodPriceID}`);
+
+                    var jsonPriceID = `jsonPrice${cbcounter}`;
+                    var jsonPriceElement = $(`#${jsonPriceID}`);
+
+                    var selectedRadioValue = $(this).data('value');
+
+                    foodPriceElement.text((priceDictionary[cbcounter] * selectedRadioValue).toFixed(2));
+                    var jsonPrice = priceDictionary[cbcounter] * selectedRadioValue * quantityElementValue;
+                    jsonPriceElement.text(jsonPrice.toFixed(2));
+                    updateBasketTotal();
+                }
+            });
+
+
+            $('.check').change(function () {
+                var checkbox = $(this);
+                var id = checkbox.data('ingredient-id');
+                var isChecked = checkbox.is(':checked');
+                var cbcounter = checkbox.data('counter-id');
+
+                var operator = isChecked ? '+' : '-';
+
+                updateTotalPrice(id, operator, cbcounter);
+            });
+
+            function updateTotalPrice(id, operator, cbcounter) {
+                var foodPriceID = `foodPrice${cbcounter}`;
+                var jsonPriceID = `jsonPrice${cbcounter}`;
+                var foodPriceElement = $(`#${foodPriceID}`);
+                var jsonPriceElement = $(`#${jsonPriceID}`);
+
+                var quantityID = `quantity${cbcounter}`;
+                var quantityElement = $(`#${quantityID}`);
+                var quantityElementValue = parseFloat(quantityElement.val());
+                var selectedRadio = $(`input[type=radio][name='radio-group-menu${cbcounter}']:checked`);
+                var selectedRadioValue = selectedRadio.data('value');
+                console.log(selectedRadioValue);
+                $.ajax({
+                    type: "get",
+                    url: "Menuler/GetIngridientPriceById",
+                    data: { uid: id },
+                    dataType: "json",
+                    success: function (data) {
+
+                        var parsedData = JSON.parse(data);
+                        var price = parseFloat(parsedData.Price);
+
+                        var newPrice = parseFloat(priceDictionary[cbcounter]);
+                        newPrice = operator === '+' ? newPrice + price : newPrice - price;
+                        priceDictionary[cbcounter] = newPrice;
+                        foodPriceElement.text((newPrice * selectedRadioValue).toFixed(2));
+                        var jsonPrice = newPrice * selectedRadioValue * quantityElementValue;
+
+                        jsonPriceElement.text(jsonPrice.toFixed(2));
+                        updateBasketTotal();
+
+
+                    },
+                    error: function (exception) {
+                        alert(exception);
+                    }
+                });
+            }
+
+            $('.quantity-field').on('input', function () {
+                var inputValue = $(this).val();
+                var cbcounter = $(this).data('counter-id');
+
+                var foodPriceID = `foodPrice${cbcounter}`;
+                var jsonPriceID = `jsonPrice${cbcounter}`;
+                var foodPriceElement = $(`#${foodPriceID}`);
+                var jsonPriceElement = $(`#${jsonPriceID}`);
+
+                var selectedRadio = $(`input[type=radio][name='radio-group-menu${cbcounter}']:checked`);
+                var selectedRadioValue = selectedRadio.data('value');
+                if (typeof selectedRadioValue === 'undefined' || selectedRadioValue === null) {
+                    selectedRadioValue = 1;
+                }
+                foodPriceElement.text((priceDictionary[cbcounter] * selectedRadioValue).toFixed(2));
+                var currentPrice = priceDictionary[cbcounter] * inputValue * selectedRadioValue;
+
+                jsonPriceElement.text(currentPrice.toFixed(2));
+                updateBasketTotal();
+            });
+
+            function updateBasketTotal() {
+                var sum = 0;
+                $('[id*="jsonPrice"]').each(function () {
+                    var value = parseFloat($(this).text());
+                    if (!isNaN(value)) {
+                        sum += value;
+                    }
+                });
+                var totalPrice = sum.toFixed(2); 
+                $('#basket-total').text(totalPrice);
+            }
+            $('#checkout-button').click(function () {
+                var totalPrice = $('#basket-total').text();
+
+                console.log(totalPrice);
+                console.log(typeof totalPrice);
+                $.ajax({
+                    url: $('#checkout-form').attr('action'),
+                    type: 'POST',
+                    data: { totalPrice: totalPrice },
+                    success: function (response) {
+                        window.location.href = '/Anasayfa/Index';
+
+                    },
+                    error: function (xhr, status, error) {
+
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

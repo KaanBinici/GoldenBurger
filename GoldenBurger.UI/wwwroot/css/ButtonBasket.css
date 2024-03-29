@@ -1,0 +1,30 @@
+﻿
+.base {
+    height: 70px;
+    width: 70px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background-image: url("../MenusPictures/double-whopper-jr-menu.png");
+    background-size: cover;
+    background-position: right;
+    position: relative;
+}
+
+.noti_count {
+    font-family: 'Montserrat', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: aliceblue;
+    font-weight: 700;
+}
+.indicator {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    left: 60%;
+    bottom: 60%;
+    background-color: brown;
+    border: 2px solid rgb(51, 51, 51);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
