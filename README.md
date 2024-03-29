@@ -2,13 +2,13 @@
 
 ![goldenburgerAnaSayfa](https://github.com/KaanBinici/GoldenBurger/assets/150259033/d797a83b-1a6b-454c-a1ff-bd9a22036b05)
 
-![GirişEkranı](https://github.com/KaanBinici/GoldenBurger/assets/150259033/9918f8fa-9243-4daa-8d66-d8f697cfe519)
-
 ![menüler](https://github.com/KaanBinici/GoldenBurger/assets/150259033/f7577ffa-c33e-4eb4-966c-1ac3f1e2c0ff)
 
 ![patatesler](https://github.com/KaanBinici/GoldenBurger/assets/150259033/068a81e8-2d8e-4413-b377-98fc3e221ccc)
 
 ![icecekler](https://github.com/KaanBinici/GoldenBurger/assets/150259033/761116e5-294b-4b5b-9e8e-35bb672adcba)
+
+![extralar](https://github.com/KaanBinici/GoldenBurger/assets/150259033/d5f6f757-efd6-4973-a86b-c988514f9888)
 
 ![sepet](https://github.com/KaanBinici/GoldenBurger/assets/150259033/66788631-547d-445e-ae9d-d88ad4ec8a3a)
 
